@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-
+fit=no">
+
+<meta name="description" content="">
+<meta name="author" content="">
+<script src="https://cdn.tailwindcss.com"></script>
+<title>Login</title>
+<link rel="icon" href="Image/icon/logo_bobakuy.png">
+<!-- Custom fonts for this template-->
+<link href="vendor/fontawesome-free/css/all.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,6
+00i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+	
+<!-- Custom styles for this template-->
+<link href="style/style_login.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<!-- CDN SWEEET ALERT 2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- LOGIN STYLING -->
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+<script
+	src="https://www.gstatic.com/firebasejs/7.15.0/firebase-
+database.js"></script>
+<script
+	src="https://www.gstatic.com/firebasejs/7.15.0/firebase-
+firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script
+	src="https://www.gstatic.com/firebasejs/7.15.0/firebase-
+analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+<script>
+	// Your web app's Firebase configuration
+    var firebaseConfig = {
+ apiKey: "AIzaSyCZOy2D8ZWZAIZrNHiZhvYJy8KJ9CgoP_M",
+ authDomain: "bobakuy-afa6c.firebaseapp.com",
+ databaseURL: "https://bobakuy-afa6c-default-rtdb.firebaseio.com/",
+ projectId: "bobakuy-afa6c",
+ storageBucket: "bobakuy-afa6c.appspot.com",
+ messagingSenderId: "580997317852",
+ appId: "1:580997317852:web:e7438bc764c6ea4f1de019",
+ measurementId: "G-SRN79BJGZ5"
+ };
+ // Initialize Firebase
+ firebase.initializeApp(firebaseConfig);
+ firebase.analytics();
+</script>
+</head>
+
+<body class="bg-gradient-primary">
+	<div>
+        
+<header>
+    <a href="Boba_kuy.html" class="logo">Boba Kuy!</a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+    <ul class="navbar">
+        <li><a href="Boba_kuy.html">Home</a></li>
+        <li><a href="Boba_kuy.html#about">About</a></li>
+        <li><a href="Boba_kuy.html#menu">Menu</a></li>
+        <li><a href="Boba_kuy.html#services">Service</a></li>
+        <li><a href="Boba_kuy.html#contact">Contact</a></li>
+    </ul>
+</header>
+<h1></h1>
+
+        <!-- Container -->
+        <div class="container mx-auto">
+            <div class="flex justify-center px-6 my-12">
+                <!-- Row -->
+                <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                    <!-- Col -->
+                    <div
+                        class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+                        style="background-image: url('Image/Boba\ kuy\ Caramelo\ .jpeg')"
+                    ></div>
+                    <!-- Col -->
+                    <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+                        <h3 class="pt-4 text-2xl text-center">Welcome!</h3>
+                        
+                            <div class="px-8 pt-6 pb-8 mb-4 bg-white rounded">                            
+                                <div class="mb-4">
+                                    <label class="block mb-2 text-sm font-bold text-gray-700">
+                                        Email
+                                    </label>
+                                    <input
+                                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                        id="email"
+                                        type="email"                                    
+                                        placeholder="E-mail"
+                                    />
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+                                        Password
+                                    </label>
+                                    <input
+                                        class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                        id="password"
+                                        type="password"                                
+                                        placeholder="Password"
+                                    />                                                                                            
+                                <div class="mb-6 text-center">
+                                    <button
+                                        class=" w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"                                    
+                                        id="signUp"
+                                        onclick="signIn()"> 
+                                        Sign In                                   
+                                    </button>
+                                </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    forged password? <a href="https://wa.me/62895343411582" class="text-blue-700">Contact US!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <footer>
+            <!-- Contact -->
+            <section class="contact" id="contact">
+                <div class="contact-box">
+                    <h3>Boba Kuy!</h3>
+                    <span>Terhubung dengan kami</span>
+                    <div class="social">
+                        <a href="https://www.facebook.com/"><i class='bx bxl-facebook' ></i></a>
+                        <a href="https://twitter.com/"><i class='bx bxl-twitter' ></i></a>
+                        <a href="https://www.instagram.com/"><i class='bx bxl-instagram' ></i></a>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <h3>Menu Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#services">Service</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+    
+                </div>
+                <div class="contact-box address">
+                    <h3>Contact</h3>
+                    <i class='bx bxs-map'><span>Kota Jakarta Selatan, DKI Jakarta - 12160</span></i>
+                    <i class='bx bxs-phone'><span>+62 8953-4341-1582</span></i>
+                    <i class='bx bxs-envelope'><span>CS@bobakuy.com</span></i>
+                </div>
+            </section>
+        </footer>   
+    </div>
+
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="admin/vendor/jquery/jquery.min.js"></script>
+	<script src="admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="admin/sb-admin-2.min.js"></script>
+	<script>
+    function signIn() {
+        var email=document.getElementById("email").value;
+        var password=document.getElementById("password").value;
+        firebase.auth().signInWithEmailAndPassword(email,password).then(function () {
+
+        window.location.href="admin.html";
+        }).catch(function (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                
+                })
+        });
+    }
+</script>
+
+ <!-- Scroll Reveal -->
+ <script src="https://unpkg.com/scrollreveal"></script>
+ <!-- Link To JavaScript -->
+ <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style/style.css">
+
+  <!-- Font Awesome 4 -->
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
+  <title>Boba Kuy | Admin | Menu</title>
+  <link rel="icon" href="Image/icon/logo_bobakuy.png">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+<script>
+  
+ // Your web app's Firebase configuration
+ var firebaseConfig = {
+ apiKey: "AIzaSyCZOy2D8ZWZAIZrNHiZhvYJy8KJ9CgoP_M",
+ authDomain: "bobakuy-afa6c.firebaseapp.com",
+ databaseURL: "https://bobakuy-afa6c-default-rtdb.firebaseio.com/",
+ projectId: "bobakuy-afa6c",
+ storageBucket: "bobakuy-afa6c.appspot.com",
+ messagingSenderId: "580997317852",
+ appId: "1:580997317852:web:e7438bc764c6ea4f1de019",
+ measurementId: "G-SRN79BJGZ5"
+ };
+ // Initialize Firebase
+ firebase.initializeApp(firebaseConfig);
+ firebase.analytics();
+</script>
+</head>
+
+<body>
+
+ <!-- Navbar -->
+ <header>
+  <a href="Boba_kuy.html" class="logo">Boba Kuy!</a>
+  <div class="bx bx-menu" id="menu-icon"></div>
+  <ul class="navbar">
+    <li><a href="admin.html">Home</a></li>
+    <li><a href="admin_menu_boba.html">Menu</a></li>
+    <li><a href="admin_order.html">History</a></li>
+    <li><a href="admin_user.html">User</a></li>
+    <li><a href="Boba_kuy.html">Log-out</a></li>
+  </ul>
+</header>
+<h1></h1>
+
+   <!-- container-fluid-start -->
+   <div id="content" class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-light text-center">BOOK</h1>
+
+    <form class="user mx-auto mb-5">
+      <div class="form-group">
+        <a href="#addBookModal" class="btn-success rounded-pill text-decoration-none float-end" data-toggle="modal">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          <span>Add</span>
+        </a>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control form-control-user" id="uid1" placeholder="ID" readonly>
+      </div>
+      <div class="form-floating form-group">
+        <input type="text" class="form-control form-control-user" id="authors1" placeholder="Author">
+        <label for="author">Author</label>
+      </div>
+      <div class="form-floating form-group">
+        <input type="text" class="form-control form-control-user" id="name1" placeholder="Book Name">
+        <label for="bookName">Book Name</label>
+      </div>
+      <div class="form-floating form-group">
+        <input type="number" class="form-control form-control-user" id="price1" placeholder="Price">
+        <label for="Price">Price</label>
+      </div>
+    
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-warning btn-user me-md-2" type="button" onclick="update_book()">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          Update
+        </button>
+        <!-- <button class="btn btn-danger btn-user" type="button" onclick="delete_user();">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          Delete
+        </button> -->
+      </div>
+    </form>
+
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12 bg">
+          <div class="table-wrapper">
+            <table id="tb_book" class="order table table-striped table-hover table-light">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Author</th>
+                  <th>Book Name</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!----add-modal start--------->
+  <div class="modal fade" tabindex="-1" id="addBookModal" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>ID</label>
+            <input id="uid" type="text" class="form-control" required readonly>
+          </div>
+          <div class="form-group">
+            <label>Menu</label>
+            <input id="authors" type="text" class="form-control" value="" required>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input id="name" type="email" class="form-control" value="" required>
+          </div>
+          <div class="form-group">
+            <label>Price</label>
+            <input id="price" type="number" class="form-control" value="" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success" onclick="validasi()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- add-modal-end -->
+
+  <!----edit-modal start--------->
+  <div class="modal fade" tabindex="-1" id="editBookModal" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>ID</label>
+            <input type="text" class="form-control" required readonly>
+          </div>
+          <div class="form-group">
+            <label>Menu</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>description</label>
+            <input type="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Price</label>
+            <input type="number" class="form-control" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!----edit-modal end--------->
+
+
+
+  <!----delete-modal end--------->
+
+  </div>
+  </div>
+  <!-- main-content-end -->
+
+
+  <script src="js/menu.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="js/jquery-3.3.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+
+</body>
+
+</html>
